@@ -1,0 +1,106 @@
+//模拟实现strcpy 
+char* my_strcpy(char* desc,const char* src)
+{
+	char* ret=desc;
+	assert(desc!=NULL);
+	assert(src!=NULL);
+	while(*desc++ = *src++)
+	{
+		;
+	}
+	return ret;
+}
+//计数器方式模拟strlen 
+unsigned int my_strlen(const char* desc)
+{
+	assert(desc!=NULL);
+	int i=0;
+	while(*desc)
+	{
+		i++;
+		desc++;
+	}
+	return i;
+}
+//不创建临时变量模拟strlen 
+unsigned int my_strlen(const char* desc)
+{
+	assert(desc!=NULL);
+	if(*desc=='\0')
+		return 0;
+	else
+		return 1+my_strlen(desc+1);
+}
+//指针减指针模拟strlen
+unsigned int my_strlen(const char* desc)
+{
+	assert(desc!=NULL);
+	char* p=desc;
+	while(*p!='\0')
+		p++;
+	
+	return p-desc; 
+ } 
+ //模拟实现strcmp 
+int my_strcmp(const char* str1,const char* str2)
+{
+	int ret=0;
+	while(! (ret = *(unsigned char *)str1 - *(unsigned char *)str2) && *str2)
+	{
+		++str1;
+		++str2;
+	}
+	
+	if(ret<0)
+		return -1;
+	else if(ret>0)
+		return 1;
+	else
+		return ret;
+}
+//模拟实现strstr 
+char* my_strstr(const char* str1,const char* str2 )
+{
+	assert(str1!=NULL);
+	assert(sre2!=NULL);
+	
+	char* cp=(char*) str1;
+	
+	char* s1=NULL;
+	if(str2=='\0')
+		return NULL;
+		
+	while(*cp)
+	{
+		char* substr=(char*) str2;
+		if(*cp==*substr)
+		{
+			s1=cp;
+			while(*s1&&*substr&&(*s1==*substr))
+			{
+				s1++;
+				substr++;
+			}
+			if(*substr=='\0')
+				return cp;
+		}
+		cp++;
+	}
+ } 
+ //模拟实现strcat 
+char* my_strcat(char* desc,const char* src)
+{
+	assert(desc);
+	assert(src);
+	char* ret=desc;
+	while(*desc)
+	{
+		desc++; 
+	} 
+	
+	while((*desc++=*src++))	
+	{
+		;
+	}
+	return ret;
+}
